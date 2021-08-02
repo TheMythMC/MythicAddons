@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "mythic_addons.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "init.MinecraftClientMixin",
+    "init.MinecraftServerMixin",
+    "oldFlintAndSteel.AbstractFireBlockMixin",
+    "Server.SignBlockEntityMixin",
+    "stackableShulkers.HopperBlockEntityMixin",
+    "stackableShulkers.ItemEntityMixin",
+    "stackableShulkers.ItemStackMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

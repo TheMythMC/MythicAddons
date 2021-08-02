@@ -1,16 +1,18 @@
-# Fabric Example Mod
+# Mythic Addons
 
-## Setup
+# Why?
+These are just things taken from other carpet extensions that I have ported over to 1.17.1 myself. These are used on my private SMP.
 
-1. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
-
+# Building
+First, download the repository by doing
+```
+git clone https://github.com/Mythbusters123/MythicAddons.git
+```
+And then build the project by doing
 ```
 ./gradlew idea
 ```
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+I always license things under MIT, you are free to do whatever the licence permits

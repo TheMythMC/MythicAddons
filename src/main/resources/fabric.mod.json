@@ -1,20 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "carpet-extension",
-  "version": "1.4.6",
+  "id": "mythic-addons",
+  "version": "1.0.0",
 
-  "name": "Example Carpet Extension Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Mythic Addons",
+  "description": "Addons for carpet for the TMA SMP",
   "authors": [
-    "Me!"
+    "Mythbusters123"
   ],
   "contact": {
-    "homepage": "https://web.me/",
-    "sources": "https://github.com/gnembon/fabric-carpet-extension-example-mod"
+    "sources": "https://github.com/Mythbusters123/MythicAddons"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/mythic-addons/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -22,11 +21,11 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "mythic-addons.mixins.json"
   ],
 
   "depends": {
-    "minecraft": "1.16.x",
+    "minecraft": "1.17.x",
     "fabricloader": ">=0.4.0",
     "carpet": "*"
   },
