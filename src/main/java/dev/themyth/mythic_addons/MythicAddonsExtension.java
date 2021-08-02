@@ -1,10 +1,11 @@
-package mythic_addons;
+package dev.themyth.mythic_addons;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
-import mythic_addons.commands.CommandRegion;
+import dev.themyth.mythic_addons.commands.CommandCraftingTable;
+import dev.themyth.mythic_addons.commands.CommandEnderChest;
+import dev.themyth.mythic_addons.commands.CommandRegion;
 import net.minecraft.server.command.ServerCommandSource;
 
 public class MythicAddonsExtension implements CarpetExtension
@@ -28,6 +29,8 @@ public class MythicAddonsExtension implements CarpetExtension
     public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher)
     {
         CommandRegion.register(dispatcher);
+        CommandCraftingTable.register(dispatcher);
+        CommandEnderChest.register(dispatcher);
     }
 
 

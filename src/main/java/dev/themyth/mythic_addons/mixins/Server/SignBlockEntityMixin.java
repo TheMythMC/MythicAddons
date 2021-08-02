@@ -1,6 +1,6 @@
-package mythic_addons.mixins.Server;
+package dev.themyth.mythic_addons.mixins.Server;
 
-import mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonSettings;
 import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Hand;

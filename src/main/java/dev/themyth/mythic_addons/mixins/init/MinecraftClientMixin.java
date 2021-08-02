@@ -1,6 +1,6 @@
-package mythic_addons.mixins.init;
+package dev.themyth.mythic_addons.mixins.init;
 
-import mythic_addons.MythicAddonsExtension;
+import dev.themyth.mythic_addons.MythicAddonsExtension;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

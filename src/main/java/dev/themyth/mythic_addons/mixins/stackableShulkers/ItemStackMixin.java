@@ -1,8 +1,8 @@
-package mythic_addons.mixins.stackableShulkers;
+package dev.themyth.mythic_addons.mixins.stackableShulkers;
 
 
 import carpet.helpers.InventoryHelper;
-import mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonSettings;
 import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

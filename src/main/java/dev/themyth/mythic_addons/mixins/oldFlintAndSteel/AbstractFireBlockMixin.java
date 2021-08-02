@@ -1,6 +1,6 @@
-package mythic_addons.mixins.oldFlintAndSteel;
+package dev.themyth.mythic_addons.mixins.oldFlintAndSteel;
 
-import mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonSettings;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;

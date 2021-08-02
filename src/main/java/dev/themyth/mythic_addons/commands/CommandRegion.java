@@ -1,7 +1,7 @@
-package mythic_addons.commands;
+package dev.themyth.mythic_addons.commands;
 
 import carpet.settings.SettingsManager;
-import mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonSettings;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import net.minecraft.server.command.ServerCommandSource;

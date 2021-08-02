@@ -1,6 +1,7 @@
-package mythic_addons;
+package dev.themyth.mythic_addons;
 
 import carpet.settings.Rule;
+import org.lwjgl.system.CallbackI;
 
 import static carpet.settings.RuleCategory.*;
 
@@ -32,7 +33,21 @@ public class MythicAddonSettings {
     @Rule(
             desc = "Allows you to edit signs",
             options = {"true", "false"},
-            category = { MYTHIC, SURVIVAL, CREATIVE, FEATURE }
+            category = { MYTHIC, SURVIVAL,  FEATURE }
     )
     public static boolean editableSigns;
+
+    @Rule(
+        desc = "Allows you to use a command to open the crafting table",
+        options = { "true", "false"},
+        category = {MYTHIC, SURVIVAL, FEATURE}
+    )
+    public static boolean commandCraftingTable;
+
+    @Rule(
+            desc = "Allows you to open the enderchest via a command if you have it in your inventory",
+            options = {"true", "false"},
+            category = {MYTHIC, SURVIVAL, FEATURE}
+    )
+    public static boolean commandEnderChest;
 }
