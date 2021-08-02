@@ -6,7 +6,7 @@ These are just things taken from other carpet extensions that I have ported over
 # Building
 First, download the repository by doing
 ```
-git clone https://github.com/Mythbusters123/MythicAddons.git
+git clone https://github.com/TheMythMC/MythicAddons.git
 ```
 And then build the project by doing
 ```
