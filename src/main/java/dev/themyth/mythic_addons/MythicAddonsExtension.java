@@ -6,6 +6,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import dev.themyth.mythic_addons.commands.CommandCraftingTable;
 import dev.themyth.mythic_addons.commands.CommandEnderChest;
 import dev.themyth.mythic_addons.commands.CommandRegion;
+import dev.themyth.mythic_addons.commands.CommandUnicorn;
 import net.minecraft.server.command.ServerCommandSource;
 
 public class MythicAddonsExtension implements CarpetExtension
@@ -31,6 +32,7 @@ public class MythicAddonsExtension implements CarpetExtension
         CommandRegion.register(dispatcher);
         CommandCraftingTable.register(dispatcher);
         CommandEnderChest.register(dispatcher);
+        CommandUnicorn.register(dispatcher);
     }
 
 

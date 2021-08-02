@@ -50,4 +50,10 @@ public class MythicAddonSettings {
             category = {MYTHIC, SURVIVAL, FEATURE}
     )
     public static boolean commandEnderChest;
+    @Rule(
+            desc = "Allows you to have a hat that gives you 1.8-style combat",
+            options = {"true", "false"},
+            category = {MYTHIC, SURVIVAL, FEATURE}
+    )
+    public static boolean commandUnicorn;
 }
