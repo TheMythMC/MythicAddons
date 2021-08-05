@@ -10,6 +10,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -21,6 +22,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.lwjgl.system.CallbackI;
 
 import java.util.Objects;
 
@@ -63,18 +65,12 @@ public class CommandUnicorn {
                             stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier("generic.attack_speed", 100, EntityAttributeModifier.Operation.ADDITION), EquipmentSlot.HEAD);
 
 
-                            if(CommandUnicorn.isUnicorned(player)) {
-                                player.equipStack(EquipmentSlot.HEAD, Blocks.AIR.asItem().getDefaultStack());
-                                ctx.getSource().sendFeedback(new TranslatableText("You are no longer a unicorn"), true);
-                                return 0;
-                            }
-
                             if (equippedItem.getGroup() == ItemGroup.COMBAT) {
                                 ctx.getSource().sendError(new TranslatableText("You must not be wearing a helmet"));
                                 return 1;
                             }
                             player.equipStack(EquipmentSlot.HEAD, stack);
-                            ctx.getSource().sendFeedback(new TranslatableText("You are now a unicorn!"), true);
+                            ctx.getSource().sendFeedback(new TranslatableText("You are now a (different) unicorn!"), true);
                             return 0;
                         })
             )
@@ -88,7 +84,9 @@ public class CommandUnicorn {
         LEAD("lead"),
         BUTTON("oak_button"),
         BONE("bone"),
-        GLASS("purple_stained_glass");
+        ENDER_CHEST("ender_chest"),
+        GLOWSTONE("glowstone"),
+        GLASS("glass");
         public String id;
 
         Items(String id){
@@ -103,6 +101,24 @@ public class CommandUnicorn {
                 Objects.equals(Registry.ITEM.getId(equippedItem).getPath(), Items.BONE.id)   ||
                 Objects.equals(Registry.ITEM.getId(equippedItem).getPath(), Items.BUTTON.id) ||
                 Objects.equals(Registry.ITEM.getId(equippedItem).getPath(), Items.LEAD.id)   ||
-                Objects.equals(Registry.ITEM.getId(equippedItem).getPath(), Items.GLASS.id);
+                Objects.equals(Registry.ITEM.getId(equippedItem).getPath(), Items.GLASS.id)  ||
+                Objects.equals(Registry.ITEM.getId(equippedItem).getPath(), Items.ENDER_CHEST.id) ||
+                Objects.equals(Registry.ITEM.getId(equippedItem).getPath(), Items.GLOWSTONE.id);
+    }
+
+    public static boolean isHelmet(ServerPlayerEntity player) {
+        boolean b1;
+        Item item = player.getEquippedStack(EquipmentSlot.HEAD).getItem();
+        if (item instanceof ArmorItem) {
+            if (((ArmorItem)item).getSlotType() == EquipmentSlot.HEAD) {
+                b1 = true;
+            }
+            else {
+                b1=false;
+            }
+        } else
+            b1 = false;
+
+        return b1 || !isUnicorned(player);
     }
 }

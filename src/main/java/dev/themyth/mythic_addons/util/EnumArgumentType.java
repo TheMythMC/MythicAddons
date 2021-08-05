@@ -23,9 +23,9 @@ public class EnumArgumentType<T extends Enum<T>> implements ArgumentType<T> {
     private final HashMap<String, T> values;
 
     private EnumArgumentType(Class<T> clazz) {
-        Enum[] arrayOfEnum = (Enum[])clazz.getEnumConstants();
+        Enum[] arrayOfEnum = clazz.getEnumConstants();
         this.values = new HashMap<>(arrayOfEnum.length);
-        for (Enum enum_ : arrayOfEnum) this.values.put(enum_.name(), (T)enum_);
+        for (Enum<T> enum_ : arrayOfEnum) this.values.put(enum_.name(), (T)enum_);
     }
 
     public static <T extends Enum<T>> EnumArgumentType<T> enumeration(Class<T> clazz) {

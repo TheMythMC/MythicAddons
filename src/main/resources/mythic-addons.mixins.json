@@ -6,6 +6,7 @@
     "init.MinecraftClientMixin",
     "init.MinecraftServerMixin",
     "oldFlintAndSteel.AbstractFireBlockMixin",
+    "Server.SignBlockEntityMixin",
     "stackableShulkers.HopperBlockEntityMixin",
     "stackableShulkers.ItemEntityMixin",
     "stackableShulkers.ItemStackMixin"

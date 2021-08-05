@@ -56,4 +56,12 @@ public class MythicAddonSettings {
             category = {MYTHIC, SURVIVAL, FEATURE}
     )
     public static boolean commandUnicorn;
+
+    @Rule(
+            desc = "Allows for the easy restart of servers",
+            options = {"true", "false"},
+            category = {MYTHIC, FEATURE, CREATIVE}
+    )
+    public static boolean commandRestart;
+
 }
