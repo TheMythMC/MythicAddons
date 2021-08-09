@@ -3,9 +3,12 @@
   "package": "dev.themyth.mythic_addons.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "accessor.BlockStateFlatteningAccessor",
     "init.MinecraftClientMixin",
     "init.MinecraftServerMixin",
     "oldFlintAndSteel.AbstractFireBlockMixin",
+    "scoreboard.ScoreboardCommandMixin",
+    "scoreboard.StatsCounterFixMixin",
     "Server.SignBlockEntityMixin",
     "stackableShulkers.HopperBlockEntityMixin",
     "stackableShulkers.ItemEntityMixin",

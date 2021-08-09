@@ -42,26 +42,26 @@ public class MythicAddonSettings {
         options = { "true", "false"},
         category = {MYTHIC, SURVIVAL, FEATURE}
     )
-    public static boolean commandCraftingTable;
+    public static boolean commandCraftingTable = false;
 
     @Rule(
             desc = "Allows you to open the enderchest via a command if you have it in your inventory",
             options = {"true", "false"},
             category = {MYTHIC, SURVIVAL, FEATURE}
     )
-    public static boolean commandEnderChest;
+    public static boolean commandEnderChest = false;
     @Rule(
             desc = "Allows you to have a hat that gives you 1.8-style combat",
             options = {"true", "false"},
             category = {MYTHIC, SURVIVAL, FEATURE}
     )
-    public static boolean commandUnicorn;
+    public static boolean commandUnicorn = false;
 
     @Rule(
-            desc = "Allows for the easy restart of servers",
+            desc = "Tracks statistics from the player file",
             options = {"true", "false"},
-            category = {MYTHIC, FEATURE, CREATIVE}
+            category = {MYTHIC, SURVIVAL, FEATURE}
     )
-    public static boolean commandRestart;
+    public static boolean betterStatistics = true;
 
 }

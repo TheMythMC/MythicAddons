@@ -10,8 +10,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
+
     @Inject(method = "<init>", at=@At("RETURN"))
     private void loadExtension(CallbackInfo ci) {
         MythicAddonsExtension.noop();
     }
+
+
 }
