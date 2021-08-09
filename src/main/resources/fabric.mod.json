@@ -23,7 +23,7 @@
   "mixins": [
     "mythic-addons.mixins.json"
   ],
-
+  "accessWidener": "mythicaddons.accesswidener",
   "depends": {
     "minecraft": "1.17.x",
     "fabricloader": ">=0.11.6",
