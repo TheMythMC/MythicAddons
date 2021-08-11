@@ -9,7 +9,7 @@
     "oldFlintAndSteel.AbstractFireBlockMixin",
     "scoreboard.ScoreboardCommandMixin",
     "scoreboard.StatsCounterFixMixin",
-    "Server.SignBlockEntityMixin",
+    "misc.SignBlockEntityMixin",
     "stackableShulkers.HopperBlockEntityMixin",
     "stackableShulkers.ItemEntityMixin",
     "stackableShulkers.ItemStackMixin"

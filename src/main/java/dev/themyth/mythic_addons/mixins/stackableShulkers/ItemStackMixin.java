@@ -2,7 +2,7 @@ package dev.themyth.mythic_addons.mixins.stackableShulkers;
 
 
 import carpet.helpers.InventoryHelper;
-import dev.themyth.mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonsSettings;
 import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -20,7 +20,7 @@ public abstract class ItemStackMixin {
 
     @Inject(method = "getMaxCount", at=@At("RETURN"), cancellable = true)
     public void getMaxCount(CallbackInfoReturnable<Integer> cir) {
-        if (MythicAddonSettings.stackableShulkersInPlayerInventories && this.getItem() instanceof BlockItem && ((BlockItem) this.getItem()).getBlock() instanceof ShulkerBoxBlock) {
+        if (MythicAddonsSettings.stackableShulkersInPlayerInventories && this.getItem() instanceof BlockItem && ((BlockItem) this.getItem()).getBlock() instanceof ShulkerBoxBlock) {
             ItemStack stack = (ItemStack) (Object) this;
             if (!InventoryHelper.shulkerBoxHasItems(stack)) {
                 stack.removeSubNbt("BlockEntityTag");

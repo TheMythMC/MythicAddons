@@ -1,6 +1,6 @@
 package dev.themyth.mythic_addons.mixins.oldFlintAndSteel;
 
-import dev.themyth.mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonsSettings;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class AbstractFireBlockMixin {
     @Redirect(method = "canPlaceAt", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;canPlaceAt(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"))
     private static boolean canPlaceAt(BlockState blockState, WorldView world, BlockPos pos){
-        if(MythicAddonSettings.oldFlintAndSteel)
+        if(MythicAddonsSettings.oldFlintAndSteel)
             return true;
         return blockState.canPlaceAt(world,pos);
     }

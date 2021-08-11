@@ -25,7 +25,7 @@ public class MythicAddonsExtension implements CarpetExtension
     public void onGameStarted()
     {
         // Let's have our own settings class independent of carpet.conf
-        CarpetServer.settingsManager.parseSettingsClass(MythicAddonSettings.class);
+        CarpetServer.settingsManager.parseSettingsClass(MythicAddonsSettings.class);
     }
 
     public void setMinecraftServer(MinecraftServer server) {
@@ -33,10 +33,13 @@ public class MythicAddonsExtension implements CarpetExtension
     }
 
     public static MythicAddonsExtension getInstance() {
+        if (extension == null) throw new IllegalStateException("No MythicAddons instance found");
         return extension;
     }
 
     public MinecraftServer getMinecraftServer() {
+        if (this.server == null) throw new IllegalStateException("No server instance found");
+
         return this.server;
     }
 

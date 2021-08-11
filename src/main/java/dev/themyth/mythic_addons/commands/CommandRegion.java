@@ -1,7 +1,7 @@
 package dev.themyth.mythic_addons.commands;
 
 import carpet.settings.SettingsManager;
-import dev.themyth.mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonsSettings;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import net.minecraft.server.command.ServerCommandSource;
@@ -13,7 +13,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 public class CommandRegion {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(literal("region").requires((player) -> SettingsManager.canUseCommand(player, MythicAddonSettings.commandRegion))
+        dispatcher.register(literal("region").requires((player) -> SettingsManager.canUseCommand(player, MythicAddonsSettings.commandRegion))
                 .then(literal("get")
                         .then(argument("x", DoubleArgumentType.doubleArg())
                                 .then(argument("z", DoubleArgumentType.doubleArg())

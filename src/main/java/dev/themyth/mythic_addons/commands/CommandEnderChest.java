@@ -4,10 +4,9 @@ import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import dev.themyth.mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonsSettings;
 import net.minecraft.block.Blocks;
 import net.minecraft.inventory.EnderChestInventory;
-import net.minecraft.screen.CraftingScreenHandler;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.command.ServerCommandSource;
@@ -19,11 +18,11 @@ import static net.minecraft.server.command.CommandManager.literal;
 public class CommandEnderChest {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("enderchest")
-                .requires( player -> SettingsManager.canUseCommand(player, MythicAddonSettings.commandEnderChest))
+                .requires( player -> SettingsManager.canUseCommand(player, MythicAddonsSettings.commandEnderChest))
                 .executes(CommandEnderChest::open));
         // If anyone knows how to do this better please tell me (or open a PR)
         dispatcher.register(literal("ec")
-                .requires(player -> SettingsManager.canUseCommand(player, MythicAddonSettings.commandEnderChest))
+                .requires(player -> SettingsManager.canUseCommand(player, MythicAddonsSettings.commandEnderChest))
                 .executes(CommandEnderChest::open));
     }
     private static int open(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {

@@ -14,6 +14,7 @@ import net.minecraft.text.LiteralText;
 import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 // Taken from github.com/Super-Santa/EssentialAddons
+@SuppressWarnings("ALL")
 public class EnumArgumentType<T extends Enum<T>> implements ArgumentType<T> {
     static {
         INVALID_ELEMENT_EXCEPTION = new DynamicCommandExceptionType(object -> new LiteralText("Enumeration element not found: " + object.toString()));

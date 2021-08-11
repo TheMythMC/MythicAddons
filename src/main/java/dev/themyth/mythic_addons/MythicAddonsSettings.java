@@ -5,7 +5,7 @@ import org.lwjgl.system.CallbackI;
 
 import static carpet.settings.RuleCategory.*;
 
-public class MythicAddonSettings {
+public class MythicAddonsSettings {
 
     private final static String MYTHIC = "Mythic";
 

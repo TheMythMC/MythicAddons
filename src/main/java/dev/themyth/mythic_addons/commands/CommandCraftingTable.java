@@ -4,17 +4,13 @@ import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import dev.themyth.mythic_addons.MythicAddonSettings;
+import dev.themyth.mythic_addons.MythicAddonsSettings;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.block.EnderChestBlock;
-import net.minecraft.item.Item;
 import net.minecraft.screen.CraftingScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.tag.Tag;
-import net.minecraft.text.Texts;
 import net.minecraft.text.TranslatableText;
 
 
@@ -24,11 +20,11 @@ public class CommandCraftingTable {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("craftingtable")
-                .requires( player -> SettingsManager.canUseCommand(player, MythicAddonSettings.commandCraftingTable))
+                .requires( player -> SettingsManager.canUseCommand(player, MythicAddonsSettings.commandCraftingTable))
                 .executes(CommandCraftingTable::open));
         // If anyone knows how to do this better please tell me (or open a PR)
         dispatcher.register(literal("cf")
-                .requires(player -> SettingsManager.canUseCommand(player, MythicAddonSettings.commandCraftingTable))
+                .requires(player -> SettingsManager.canUseCommand(player, MythicAddonsSettings.commandCraftingTable))
                 .executes(CommandCraftingTable::open));
     }
     private static int open(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
