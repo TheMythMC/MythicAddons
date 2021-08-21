@@ -13,7 +13,6 @@ Look at the releases tab, and download the jar without a prefix (no -dev or -sou
 
 # Building
 
-## Latest commit
 First, download the repository by doing
 ```
 git clone https://github.com/TheMythMC/MythicAddons.git
