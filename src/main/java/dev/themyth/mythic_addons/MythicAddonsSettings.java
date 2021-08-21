@@ -1,7 +1,6 @@
 package dev.themyth.mythic_addons;
 
 import carpet.settings.Rule;
-import org.lwjgl.system.CallbackI;
 
 import static carpet.settings.RuleCategory.*;
 
@@ -63,5 +62,25 @@ public class MythicAddonsSettings {
             category = {MYTHIC, SURVIVAL, FEATURE}
     )
     public static boolean betterStatistics = true;
+// Will figure out how to implement this later
+    @Rule(
+            desc = "Adds stackable bows, useful for dispensers",
+            options = {"true", "false"},
+            category = { MYTHIC, SURVIVAL, FEATURE }
+    )
+    public static boolean stackableBows = false;
 
+    @Rule(
+            desc = "Allows shulker boxes to stack in hoppers (this is to allow shulker box stackin in inventories but not hoppers)",
+            options = { "true", "false"},
+            category = { MYTHIC, SURVIVAL, FEATURE}
+    )
+    public static boolean shulkerBoxesStackingInHoppers = false;
+
+    @Rule(
+            desc = "Allows empty shulkerboxes to be inside other shulkerboxes",
+            options = {"true", "false"},
+            category = { MYTHIC, SURVIVAL, FEATURE}
+          )
+    public static boolean emptyShulkerCeption = false;
 }
