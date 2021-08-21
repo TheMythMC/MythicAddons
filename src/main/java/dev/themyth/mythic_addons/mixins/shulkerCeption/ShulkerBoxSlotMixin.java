@@ -17,7 +17,7 @@ public class ShulkerBoxSlotMixin {
 
     @Inject(method = "canInsert", at = @At("HEAD"), cancellable = true)
     private void canInsert(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-        if (stack.getItem() instanceof BlockItem && ((BlockItem) stack.getItem()).getBlock() instanceof ShulkerBoxBlock && shulkerBoxHasItems(stack) && MythicAddonsSettings.emptyShulkerCeption) {
+        if (stack.getItem() instanceof BlockItem && ((BlockItem) stack.getItem()).getBlock() instanceof ShulkerBoxBlock && !shulkerBoxHasItems(stack) && MythicAddonsSettings.emptyShulkerCeption) {
             cir.setReturnValue(true);
         }
     }
