@@ -14,7 +14,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class HopperBlockEntityMixin {
     @Inject(method = "canMergeItems", at = @At("HEAD"), cancellable = true)
     private static void canMergeItems(ItemStack first, ItemStack second, CallbackInfoReturnable<Boolean> cir) {
-        if (MythicAddonsSettings.stackableShulkersInPlayerInventories && first.getItem() instanceof BlockItem && ((BlockItem) first.getItem()).getBlock() instanceof ShulkerBoxBlock && MythicAddonsSettings.shulkerBoxesStackingInHoppers)
+        if (MythicAddonsSettings.stackableShulkersInPlayerInventories &&
+            first.getItem() instanceof BlockItem &&
+            ((BlockItem) first.getItem()).getBlock() instanceof ShulkerBoxBlock &&
+            second.getItem() instanceof BlockItem &&
+            ((BlockItem) second.getItem()).getBlock() instanceof ShulkerBoxBlock &&
+            !MythicAddonsSettings.shulkerBoxesStackingInHoppers)
             cir.setReturnValue(false);
     }
 }
