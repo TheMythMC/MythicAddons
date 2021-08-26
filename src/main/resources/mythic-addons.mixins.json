@@ -1,9 +1,10 @@
 {
   "required": true,
   "package": "dev.themyth.mythic_addons.mixins",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "mixins": [
     "accessor.BlockStateFlatteningAccessor",
+    "carpet.hooks.SettingsManagerMixin",
     "init.MinecraftClientMixin",
     "init.MinecraftServerMixin",
     "misc.SignBlockEntityMixin",

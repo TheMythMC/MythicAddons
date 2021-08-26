@@ -10,8 +10,8 @@ import net.minecraft.util.WorldSavePath;
 
 import java.nio.file.Path;
 
-public class MythicAddonsExtension implements CarpetExtension
-{
+public class MythicAddonsExtension implements CarpetExtension {
+    public static final String fancyName = "Mythic Addons";
     private  MinecraftServer server;
     public static void noop() { }
     private static final MythicAddonsExtension extension = new MythicAddonsExtension();
