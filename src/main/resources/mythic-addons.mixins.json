@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "accessor.BlockStateFlatteningAccessor",
+    "accessor.TeleportCommandAccessor",
     "carpet.hooks.SettingsManagerMixin",
     "init.MinecraftClientMixin",
     "init.MinecraftServerMixin",

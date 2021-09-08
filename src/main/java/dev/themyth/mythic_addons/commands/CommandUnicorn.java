@@ -32,7 +32,7 @@ public class CommandUnicorn {
                     ServerPlayerEntity player = ctx.getSource().getPlayer();
                     ItemStack stack = Blocks.END_ROD.asItem().getDefaultStack();
                     stack.setCount(1);
-                    stack.addEnchantment(Enchantments.BINDING_CURSE, 1);
+                    stack.addEnchantment(Enchantments.BINDING_CURSE, 5);
                     stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier("generic.attack_speed", 100, EntityAttributeModifier.Operation.ADDITION), EquipmentSlot.HEAD);
                     Item equippedItem = player.getEquippedStack(EquipmentSlot.HEAD).getItem();
 
@@ -42,7 +42,7 @@ public class CommandUnicorn {
                         return 0;
                     }
 
-                    if (equippedItem.getGroup() == ItemGroup.COMBAT) {
+                    if (isHelmet(player)) {
                         ctx.getSource().sendError(new TranslatableText("You must not be wearing a helmet"));
                         return 1;
                     }
@@ -105,14 +105,13 @@ public class CommandUnicorn {
         boolean b1;
         Item item = player.getEquippedStack(EquipmentSlot.HEAD).getItem();
         if (item instanceof ArmorItem) {
-            if (((ArmorItem)item).getSlotType() == EquipmentSlot.HEAD) {
+            b1 = ((ArmorItem) item).getSlotType() == EquipmentSlot.HEAD;
+        } else {
+            if("carved_pumpkin".equals(Registry.ITEM.getId(item).getPath())) {
                 b1 = true;
             }
-            else {
-                b1=false;
-            }
-        } else
             b1 = false;
+        }
 
         return b1 || !isUnicorned(player);
     }

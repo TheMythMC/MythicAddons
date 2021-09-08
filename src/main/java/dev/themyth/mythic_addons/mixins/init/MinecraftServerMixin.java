@@ -16,5 +16,4 @@ public class MinecraftServerMixin {
         MythicAddonsExtension.noop();
         MythicAddonsExtension.getInstance().setMinecraftServer((MinecraftServer) (Object) this);
     }
-
 }

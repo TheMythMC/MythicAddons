@@ -83,4 +83,11 @@ public class MythicAddonsSettings {
             category = { MYTHIC, SURVIVAL, FEATURE}
           )
     public static boolean emptyShulkerCeption = false;
+
+    @Rule(
+            desc = "Implements the /c and /s commands from Quick Carpet",
+            options = {"true", "false"},
+            category = { MYTHIC, SURVIVAL, FEATURE}
+    )
+    public static boolean spectatorCommands = false;
 }

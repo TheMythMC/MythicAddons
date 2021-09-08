@@ -20,6 +20,7 @@ public class HopperBlockEntityMixin {
             second.getItem() instanceof BlockItem &&
             ((BlockItem) second.getItem()).getBlock() instanceof ShulkerBoxBlock &&
             !MythicAddonsSettings.shulkerBoxesStackingInHoppers)
+            // I have absolutely no idea why its false here but ok minecraft
             cir.setReturnValue(false);
     }
 }

@@ -15,12 +15,14 @@ public abstract class ItemStackMixin {
     @Shadow
     public abstract Item getItem();
 
+    // Using an inject because you can't do it the same way carpet does stackable shulkers because of mixin conflicts, this will (hopefully) ensure that no conflicts ensue
     @Inject(
             method = "getMaxCount",
             at = @At("HEAD"),
             cancellable = true
     )
     private void getMaxCount(CallbackInfoReturnable<Integer> cir) {
+        // You can use this for everything, just add a this.getItem() instanceof <Item Class Here>
         if (this.getItem() instanceof BowItem && MythicAddonsSettings.stackableBows) {
             cir.setReturnValue(64);
         }
