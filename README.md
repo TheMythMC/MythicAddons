@@ -3,6 +3,8 @@
 # Why?
 These are just things taken from other carpet extensions that I have ported over to 1.17.1 myself. These are used on my private SMP.
 
+This mod is made so that certain things in vanilla (such as transporting a large amount of shulker boxes or crafting a crap ton of dispensers) are made a trillion times easier, with just a couple lines of code. Of course, this takes away part of the grind, but does anyone LIKE crafting dispensers? Didn't think so.
+
 # Downloading
 
 ##Latest Commit
