@@ -38,7 +38,7 @@ public record CameraData(RegistryKey<World> dimension, Vec3d position) {
             Codec.DOUBLE.fieldOf("z").forGetter(d -> d.position().z)
     ).apply(it, (dim, x, y, z) -> new CameraData(RegistryKey.of(Registry.WORLD_KEY, dim), new Vec3d(x, y, z))));
     public static final Codec<Map<UUID, CameraData>> MAP_CODEC = Codec.unboundedMap(Codec.STRING.xmap(UUID::fromString, UUID::toString), CODEC.codec());
-    private static final Logger LOGGER = LogManager.getLogger("QuickCarpet|CameraData");
+    private static final Logger LOGGER = LogManager.getLogger("MythicAddons|CameraData");
 
     public CameraData(Entity entity) {
         this(entity.world.getRegistryKey(), entity.getPos());

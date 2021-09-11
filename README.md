@@ -22,11 +22,5 @@ And then build the project by doing
 ```
 ./gradlew idea
 ```
-## Using
-If you are using the `shulkerBoxesStackingInHoppers` rule and Lithium, you need to add the line 
-```
-mixin.block.hopper=false
-```
-in your `lithium.properties` config file
 ## License
 I always license things under MIT, you are free to do whatever the licence permits

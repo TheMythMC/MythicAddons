@@ -28,7 +28,7 @@ public class SettingsManagerMixin {
                     value = "INVOKE",
                     target = "Lcarpet/settings/SettingsManager;getCategories()Ljava/lang/Iterable;",
                     ordinal = 0,
-                    remap = true
+                    remap = false
             ),
             remap = false
     )

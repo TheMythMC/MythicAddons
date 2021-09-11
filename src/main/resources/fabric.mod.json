@@ -32,5 +32,10 @@
   },
   "suggests": {
     "flamingo": "*"
+  },
+  "custom": {
+    "lithium:options": {
+      "mixin.block.hopper": false
+    }
   }
 }
