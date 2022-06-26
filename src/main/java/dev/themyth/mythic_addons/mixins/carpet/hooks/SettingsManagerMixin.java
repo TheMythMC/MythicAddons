@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SettingsManager.class)
 public class SettingsManagerMixin {
-    @SuppressWarnings("DefaultAnnotationParam")
     @Inject(
             method = "listAllSettings",
             slice = @Slice(
@@ -32,7 +31,7 @@ public class SettingsManagerMixin {
             ),
             remap = false
     )
-    private void printAdditionVersion(ServerCommandSource source, CallbackInfoReturnable<Integer> cir) {
+    private void printAdditionalVersion(ServerCommandSource source, CallbackInfoReturnable<Integer> cir) {
         Messenger.m(source,
                 String.format("g %s ", MythicAddonsExtension.fancyName),
                 String.format("g %s: ", Translations.tr("ui.version", "version")),

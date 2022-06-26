@@ -5,34 +5,36 @@ import carpet.CarpetServer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.logging.LogUtils;
 import dev.themyth.mythic_addons.commands.*;
 import dev.themyth.mythic_addons.util.CameraData;
+import net.fabricmc.api.ModInitializer;
+import net.minecraft.command.CommandBuildContext;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.WorldSavePath;
+import org.slf4j.Logger;
 
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class MythicAddonsExtension implements CarpetExtension {
+public class MythicAddonsExtension implements CarpetExtension{
     public static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public Map<UUID, CameraData> cameraData = new HashMap();
     public static final String fancyName = "Mythic Addons";
-    private  MinecraftServer server;
+    private MinecraftServer server;
     public static void noop() { }
     private static final MythicAddonsExtension extension = new MythicAddonsExtension();
-    static
-    {
-        CarpetServer.manageExtension(extension);
-        extension.onGameStarted();
-    }
 
+    public static void loadExtension() {
+        CarpetServer.manageExtension(new MythicAddonsExtension());
+    }
     @Override
     public void onGameStarted()
     {
-        // Let's have our own settings class independent of carpet.conf
         CarpetServer.settingsManager.parseSettingsClass(MythicAddonsSettings.class);
     }
 
@@ -46,7 +48,7 @@ public class MythicAddonsExtension implements CarpetExtension {
     }
 
     public MinecraftServer getMinecraftServer() {
-        if (this.server == null) throw new IllegalStateException("No server instance found");
+        if (this.server == null) throw new IllegalStateException("No server instance found... What?!");
 
         return this.server;
     }
@@ -57,7 +59,7 @@ public class MythicAddonsExtension implements CarpetExtension {
 
 
     @Override
-    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher)
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandBuildContext cbc)
     {
         CommandRegion.register(dispatcher);
         CommandCraftingTable.register(dispatcher);

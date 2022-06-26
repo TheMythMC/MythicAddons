@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "mythic-addons",
-  "version": "1.3.1",
+  "version": "1.4.2",
 
   "name": "Mythic Addons",
   "description": "Addons for carpet for the TMA SMP",
@@ -12,7 +12,7 @@
     "sources": "https://github.com/Mythbusters123/MythicAddons"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/mythic-addons/icon.png",
 
   "environment": "*",
@@ -26,7 +26,7 @@
   ],
   "accessWidener": "mythicaddons.accesswidener",
   "depends": {
-    "minecraft": "1.17.x",
+    "minecraft": "1.19.x",
     "fabricloader": ">=0.11.6",
     "carpet": "*"
   },

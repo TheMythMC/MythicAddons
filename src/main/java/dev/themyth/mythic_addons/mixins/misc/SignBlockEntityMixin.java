@@ -16,7 +16,7 @@ public abstract class SignBlockEntityMixin {
 
     @Inject(method="onActivate", at= @At("HEAD"))
     private void onActivate(ServerPlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-        if (MythicAddonsSettings.editableSigns && player.isSneaking()) {
+        if (MythicAddonsSettings.editableSigns && player.isSneaking() && player.getStackInHand(player.getActiveHand()).isEmpty()) {
             editable = true;
             player.openEditSignScreen( (SignBlockEntity) (Object) this);
         }

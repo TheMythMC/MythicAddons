@@ -62,7 +62,7 @@ public class MythicAddonsSettings {
             category = {MYTHIC, SURVIVAL, FEATURE}
     )
     public static boolean betterStatistics = true;
-// Will figure out how to implement this later
+
     @Rule(
             desc = "Adds stackable bows, useful for dispensers",
             options = {"true", "false"},
@@ -71,7 +71,7 @@ public class MythicAddonsSettings {
     public static boolean stackableBows = false;
 
     @Rule(
-            desc = "Allows shulker boxes to stack in hoppers (this is to allow shulker box stackin in inventories but not hoppers)",
+            desc = "Allows shulker boxes to stack in hoppers (this is to allow shulker box stacking in inventories but not hoppers)",
             options = { "true", "false"},
             category = { MYTHIC, SURVIVAL, FEATURE}
     )

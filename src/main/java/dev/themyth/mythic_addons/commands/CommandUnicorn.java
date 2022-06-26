@@ -15,7 +15,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -38,16 +38,16 @@ public class CommandUnicorn {
 
                     if(CommandUnicorn.isUnicorned(player)) {
                         player.equipStack(EquipmentSlot.HEAD, Blocks.AIR.asItem().getDefaultStack());
-                        ctx.getSource().sendFeedback(new TranslatableText("You are no longer a unicorn"), true);
+                        ctx.getSource().sendFeedback(Text.literal("You are no longer a unicorn"), true);
                         return 0;
                     }
 
                     if (isHelmet(player)) {
-                        ctx.getSource().sendError(new TranslatableText("You must not be wearing a helmet"));
+                        ctx.getSource().sendError(Text.literal("You must not be wearing a helmet"));
                         return 1;
                     }
                     player.equipStack(EquipmentSlot.HEAD, stack);
-                    ctx.getSource().sendFeedback(new TranslatableText("You are now a unicorn!"), true);
+                    ctx.getSource().sendFeedback(Text.literal("You are now a unicorn!"), true);
                     return 0;
 
                 }).then(argument("Item", EnumArgumentType.enumeration(CommandUnicorn.Items.class))
@@ -61,11 +61,11 @@ public class CommandUnicorn {
 
 
                             if (equippedItem.getGroup() == ItemGroup.COMBAT) {
-                                ctx.getSource().sendError(new TranslatableText("You must not be wearing a helmet"));
+                                ctx.getSource().sendError(Text.literal("You must not be wearing a helmet"));
                                 return 1;
                             }
                             player.equipStack(EquipmentSlot.HEAD, stack);
-                            ctx.getSource().sendFeedback(new TranslatableText("You are now a (different) unicorn!"), true);
+                            ctx.getSource().sendFeedback(Text.literal("You are now a (different) unicorn!"), true);
                             return 0;
                         })
             )

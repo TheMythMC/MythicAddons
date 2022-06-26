@@ -3,11 +3,10 @@
   "package": "dev.themyth.mythic_addons.mixins",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "init.MinecraftServerMixin",
     "accessor.BlockStateFlatteningAccessor",
     "accessor.TeleportCommandAccessor",
     "carpet.hooks.SettingsManagerMixin",
-    "init.MinecraftClientMixin",
-    "init.MinecraftServerMixin",
     "misc.SignBlockEntityMixin",
     "oldFlintAndSteel.AbstractFireBlockMixin",
     "scoreboard.ScoreboardCommandMixin",
@@ -20,6 +19,7 @@
     "stackableShulkers.ItemStackMixin"
   ],
   "client": [
+    "init.MinecraftClientMixin",
   ],
   "injectors": {
     "defaultRequire": 1
