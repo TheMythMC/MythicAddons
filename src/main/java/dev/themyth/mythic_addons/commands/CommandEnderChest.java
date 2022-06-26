@@ -12,7 +12,7 @@ import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 
 import static net.minecraft.server.command.CommandManager.literal;
 
@@ -25,13 +25,13 @@ public class CommandEnderChest {
     private static int open(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
 
         if (!ctx.getSource().getPlayer().getInventory().contains(Blocks.ENDER_CHEST.asItem().getDefaultStack())) {
-            ctx.getSource().sendError(new TranslatableText("You do not have a EnderChest in your inventory."));
+            ctx.getSource().sendError(Text.translatable("You do not have a EnderChest in your inventory."));
             return 1;
         }
 
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         EnderChestInventory enderChest = player.getEnderChestInventory();
-        player.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, playerInv, playerEntity) -> GenericContainerScreenHandler.createGeneric9x3(syncId, playerInv, enderChest), new TranslatableText("container.enderchest")));
+        player.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, playerInv, playerEntity) -> GenericContainerScreenHandler.createGeneric9x3(syncId, playerInv, enderChest), Text.translatable("container.enderchest")));
         return 0;
     }
 
