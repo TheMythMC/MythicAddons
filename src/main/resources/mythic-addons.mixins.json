@@ -3,12 +3,18 @@
   "package": "dev.themyth.mythic_addons.mixins",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "init.MinecraftServerMixin",
     "accessor.BlockStateFlatteningAccessor",
+    "accessor.ComposterBlockAccessor",
+    "accessor.ServerWorldPropertiesAccessor",
     "accessor.TeleportCommandAccessor",
+    "accessor.EnchantmentAccessor",
     "carpet.hooks.SettingsManagerMixin",
+    "init.MinecraftServerMixin",
+    "accessor.EnchantmentAccessor",
+    "mendfinity.InfinityEnchantmentMixin",
     "misc.SignBlockEntityMixin",
     "oldFlintAndSteel.AbstractFireBlockMixin",
+    "rottenFleshCompostable.ComposterBlockMixin",
     "scoreboard.ScoreboardCommandMixin",
     "scoreboard.StatsCounterFixMixin",
     "shulkerCeption.ShulkerBoxBlockEntityMixin",
@@ -19,7 +25,7 @@
     "stackableShulkers.ItemStackMixin"
   ],
   "client": [
-    "init.MinecraftClientMixin",
+    "init.MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

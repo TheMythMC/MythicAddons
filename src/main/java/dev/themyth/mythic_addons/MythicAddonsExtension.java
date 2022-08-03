@@ -65,6 +65,7 @@ public class MythicAddonsExtension implements CarpetExtension{
         CommandCraftingTable.register(dispatcher);
         CommandEnderChest.register(dispatcher);
         CommandUnicorn.register(dispatcher);
+        DebugCommand.register(dispatcher);
         SpectatorCommands.register(dispatcher);
     }
 }

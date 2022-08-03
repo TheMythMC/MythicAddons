@@ -34,7 +34,6 @@ public class CommandUnicorn {
                     stack.setCount(1);
                     stack.addEnchantment(Enchantments.BINDING_CURSE, 5);
                     stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier("generic.attack_speed", 100, EntityAttributeModifier.Operation.ADDITION), EquipmentSlot.HEAD);
-                    Item equippedItem = player.getEquippedStack(EquipmentSlot.HEAD).getItem();
 
                     if(CommandUnicorn.isUnicorned(player)) {
                         player.equipStack(EquipmentSlot.HEAD, Blocks.AIR.asItem().getDefaultStack());
@@ -56,11 +55,11 @@ public class CommandUnicorn {
                             Item equippedItem = player.getEquippedStack(EquipmentSlot.HEAD).getItem();
                             ItemStack stack = Registry.ITEM.get(Identifier.tryParse(EnumArgumentType.getEnumeration(ctx, "Item", CommandUnicorn.Items.class).id)).getDefaultStack();
                             stack.setCount(1);
-                            stack.addEnchantment(Enchantments.BINDING_CURSE, 1);
+                            stack.addEnchantment(Enchantments.BINDING_CURSE, 5);
                             stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier("generic.attack_speed", 100, EntityAttributeModifier.Operation.ADDITION), EquipmentSlot.HEAD);
 
 
-                            if (equippedItem.getGroup() == ItemGroup.COMBAT) {
+                            if (isHelmet(player)) {
                                 ctx.getSource().sendError(Text.literal("You must not be wearing a helmet"));
                                 return 1;
                             }
@@ -82,7 +81,7 @@ public class CommandUnicorn {
         ENDER_CHEST("ender_chest"),
         GLOWSTONE("glowstone"),
         GLASS("glass");
-        public String id;
+        public final String id;
 
         Items(String id){
             this.id = id;
@@ -107,10 +106,7 @@ public class CommandUnicorn {
         if (item instanceof ArmorItem) {
             b1 = ((ArmorItem) item).getSlotType() == EquipmentSlot.HEAD;
         } else {
-            if("carved_pumpkin".equals(Registry.ITEM.getId(item).getPath())) {
-                b1 = true;
-            }
-            b1 = false;
+            b1 = "carved_pumpkin".equals(Registry.ITEM.getId(item).getPath());
         }
 
         return b1 || !isUnicorned(player);

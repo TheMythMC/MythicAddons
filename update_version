@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while getopts "pmM" o; do case "${o}" in
+  p) ;;
+  m) ;;
+  M) ;;
+esac
+done
