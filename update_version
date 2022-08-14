@@ -1,8 +1,41 @@
-#!/bin/sh
+#!/usr/bin/sh
+
+useage() {
+  cat << EOF
+  Update_Version: For updating any fabric mod.
+  This simple shell script to update the version
+  Options:
+    -p -- Adds 1 to the current patch version
+    -m -- Adds 1 to the current minor version
+    -M -- Adds 1 to the current major version
+EOF
+}
+
+PREV_VERSION="$(grep "mod_version" gradle.properties | awk '{printf $3}')"
 
 while getopts "pmM" o; do case "${o}" in
-  p) ;;
-  m) ;;
-  M) ;;
-esac
-done
+  p)
+    # Needs to be done this way or else shell has a heart attack
+    NEW_CHAR="$((($(echo "$PREV_VERSION" | cut -d'.' -f3) + 1)))"
+    NEW_VERSION="${PREV_VERSION::-2}.${NEW_CHAR}"
+    sed -i "s/$PREV_VERSION/$NEW_VERSION/g" gradle.properties ./src/main/resources/fabric.mod.json
+    ;;
+  m)
+    MAJOR="$(echo "$PREV_VERSION"| cut -d'.' -f1)"
+    MINOR="$((($(echo "$PREV_VERSION"| cut -d'.' -f2) + 1)))"
+    PATCH="$(echo "$PREV_VERSION"| cut -d'.' -f3)"
+    NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+    sed -i "s/$PREV_VERSION/$NEW_VERSION/g" gradle.properties ./src/main/resources/fabric.mod.json
+    ;;
+  M)
+    NEW_CHAR="$((($(echo "$PREV_VERSION" | cut -d'.' -f1) + 1)))"
+    NEW_VERSION="${NEW_CHAR}.$(echo "$PREV_VERSION" | cut -c3-)"
+    sed -i "s/$PREV_VERSION/$NEW_VERSION/g" gradle.properties ./src/main/resources/fabric.mod.json
+    ;;
+  *)
+    useage
+    exit 1
+    ;;
+esac done
+
+
