@@ -2,6 +2,8 @@ package dev.themyth.mythic_addons.mixins.init;
 
 
 import dev.themyth.mythic_addons.MythicAddonsExtension;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

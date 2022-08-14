@@ -90,4 +90,25 @@ public class MythicAddonsSettings {
             category = { MYTHIC, SURVIVAL, FEATURE}
     )
     public static boolean spectatorCommands = false;
+
+    @Rule(
+            desc = "Allows Rotten Flesh to be composted",
+            options = { "true", "false" },
+            category = { MYTHIC, SURVIVAL, FEATURE }
+    )
+    public static boolean rottenFleshCompostable = false;
+
+    @Rule(
+            desc = "Backs up player data every hour and stores it from last two backups",
+            options = {"true", "false"},
+            category = { MYTHIC, SURVIVAL }
+    )
+    public static boolean playerDataBackup = false;
+
+    @Rule(
+            desc = "Allows you to put mending and infinity on bows",
+            options = { "true", "false" },
+            category = { MYTHIC, SURVIVAL, FEATURE }
+    )
+    public static boolean mendFinity = false;
 }
